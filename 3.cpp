@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define 0 white
-#define 1 black
-char dir[3]= {'U','R','D','L'};
+char dir[4]= {'U','R','D','L'};
 int diri=0;
 int main() {
     freopen("input.txt","r",stdin);
@@ -19,8 +17,8 @@ int main() {
         }
     }
     scanf("%d%d%c%d",&x,&y,&s,&k);
-    for(int i=0;i<=3;i++){  
-        if(dir[i]==s){
+    for(int i=0; i<=3; i++) {
+        if(dir[i]==s) {
             diri=i;
             break;
         }
@@ -30,16 +28,18 @@ int main() {
         if(a[x][y]==white) {
             a[x][y]=black;
             diri--;
-            if(dir[diri]=='R'){
+            if(dir[diri%4]=='R') {
                 y++;
             }
-            if(dir[diri]=='L'){
+            if(dir[diri%4]=='L') {
                 y--;
             }
-            if(dir[diri]=='U'){
+            if (dir[diri % 4] == 'U')
+            {
                 x++;
             }
-            if(dir[diri]='D'){
+            if (dir[diri % 4] = 'D')
+            {
                 x--;
             }
         }
