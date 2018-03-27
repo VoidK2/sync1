@@ -3,7 +3,7 @@
 using namespace std;
 typedef long long ll;
 int main() {
-    freopen("inputlx.txt","r",stdin);
+    // freopen("inputlx.txt","r",stdin);
     long long i,j,n,m,p,a,b,c,fm,sn,result;
     cin>>n>>m>>p;
     a=b=1;
