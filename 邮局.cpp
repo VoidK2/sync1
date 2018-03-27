@@ -27,7 +27,7 @@ int main(){
         house[i].status1=true;
     }
     for(int i =1;i<=m;i++){
-        scanf("%d%d",&posto[i].x,&posto[i],y);
+        scanf("%d%d",&posto[i].x,&posto[i].y);
         for(int j=1;j<=n;j++){
             dist[i].distans[j]=cudis(posto[i].x,house[j].x,posto[i].y,house[j].y);
         }
