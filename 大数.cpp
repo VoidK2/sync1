@@ -2,7 +2,7 @@
 using namespace std;
 char temp[7][5000];
 void jisuan(){
-
+    
 }
 int cnt(){
     int flag=1,ans;
