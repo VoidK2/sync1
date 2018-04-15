@@ -1,27 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n, k;
-int a[100005];
+typedef long long ll;
+
+ll p[100005];
+
+int r(ll n, ll k)
+{
+    int sum = 0;
+    for (ll i = 0; i < n; i++)
+    {
+        sum += p[i];
+        sum = sum % k;
+    }
+    if (sum % k == 0)
+    {
+        return n;
+    }
+    for (ll i = n - 1; i > 0; i--)
+    {
+        sum = 0;
+        for (ll ii = 0; ii < i; ii++)
+        {
+            sum += p[ii];
+            sum = sum % k;
+        }
+        if (sum % k == 0)
+            return i;
+        for (ll j = 0; j < n - i; j++)
+        {
+            sum = sum - p[j] + p[j + i];
+            sum = sum % k;
+            if (sum % k == 0)
+                return i;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
-    freopen("inputlx.txt","r",stdin);
-    scanf("%d %d", &n, &k);
-    a[0] = 0;
-    for (int i = 1; i <= n; i++)
+    ll n, k;
+    //freopen("inputlx.txt","r",stdin);
+    while (cin >> n)
     {
-        scanf("%d", &a[i]);
-        a[i] += a[i-1];
+        cin >> k;
+        memset(p, 0, sizeof(p));
+        for (ll i = 0; i < n; i++)
+        {
+            cin >> p[i];
+        }
+        cout << r(n, k) << endl;
     }
-    for (int i = 1; i <= n; i ++)
-    {
-        a[i] %= k;
-    }
-    int cnt = 0;
-    for (int i = 0; i <= n; i ++)
-    for (int j = i+1; j <= n; j ++)
-    if(a[i] == a[j])
-    {
-            cnt = max(cnt,j-i);
-    }
-    printf("%d\n",cnt);
+    return 0;
 }
