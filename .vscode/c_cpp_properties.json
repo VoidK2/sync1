@@ -47,10 +47,8 @@
             "includePath": [
                 "C:/mingw64/include/*",
                 "C:/mingw64/include/gdb/*",
-                "C:/mingw64/include/libiberty/*",
-                "C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/*",
-                "C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/*",
-                "C:/mingw64/lib/gcc/x86_64-w64-mingw32/7.2.0/include/ssp/*"
+                "C:/mingw64/include/libiberty/*"
+                
             ],
             "defines": [
                 "_DEBUG",
