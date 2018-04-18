@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    //freopen("inputlx.txt","r",stdin);
+    freopen("inputlx.txt","r",stdin);
     int t=0,n=0;
     long long ans=0;
     int a[100010],b[100010],c[100010];
