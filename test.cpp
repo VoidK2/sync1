@@ -1,12 +1,9 @@
 #include <cstdio>
 using namespace std;
 int main(){
-    int i=70,ans;
-    while (i >= 7){
-                if (i % 7 == 0)
-                    ans++;
-                i=i/7;
-            }
-            printf("%d",ans);
-    return 0;
+  freopen("input.txt","r",stdin);
+  float a1,b1,c1,a2,b2,c2;
+  scanf("%f%f%f",&a1,&b1,&c1);
+  scanf("%f%f%f",&a2,&b2,&c2);
+
 }
