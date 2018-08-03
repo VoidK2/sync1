@@ -8,7 +8,7 @@ using namespace std;
 
 struct Point  
 {  
-    float x,y;  
+    int x,y;  
 };   
 bool cmp1(Point a,Point b){
   return max(a.x,b.x);
@@ -32,10 +32,10 @@ int main(){
         for(int i=0;i<n;i++){
             int t1,t2;
             scanf("%d%d",&t1,&t2);
-            PointSet[i].x=(float)t1;
-            PointSet[i].y=(float)t2;
+            PointSet[i].x=t1;
+            PointSet[i].y=t2;
         }
-        
+        sort(PointSet,PointSet+n,cmp1);
         for(int i=0;i<len-2;i++){
             int xx=i,yy=i+1,zz=i+2;
             if((ch[yy].x==ch[xx].x&&ch[yy].y==ch[zz].y)||(ch[yy].x==ch[zz].x&&ch[yy].y==ch[xx].y)){

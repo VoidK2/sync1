@@ -81,11 +81,10 @@ int main(){
         for(int i=0;i<n;i++){
             int t1,t2;
             scanf("%d%d",&t1,&t2);
-            ch[i].x=(float)t1;
-            ch[i].y=(float)t2;
+            PointSet[i].x=(float)t1;
+            PointSet[i].y=(float)t2;
         }
-        // Graham_scan(PointSet,ch,n,len);
-        len=n;
+        Graham_scan(PointSet,ch,n,len);
         for(int i=0;i<len-2;i++){
             int xx=i,yy=i+1,zz=i+2;
             if((ch[yy].x==ch[xx].x&&ch[yy].y==ch[zz].y)||(ch[yy].x==ch[zz].x&&ch[yy].y==ch[xx].y)){
@@ -96,22 +95,22 @@ int main(){
                 break; 
             }
         }
-        // int xx=len-2,yy=len-1,zz=0;
-        //     if((ch[yy].x==ch[zz].x&&ch[yy].y==ch[zz].y)||(ch[yy].x==ch[xx].x&&ch[yy].y==ch[xx].y)){
-        //         ans=1;
-        //         break;
-        //     }else if(abs(ch[xx].x-ch[yy].x)==abs(ch[xx].y-ch[yy].y)&&abs(ch[zz].x-ch[yy].x)==abs(ch[zz].y-ch[yy].y)&&(((ch[xx].x*ch[yy].y-ch[xx].y*ch[yy].x)+(ch[yy].x*ch[zz].y-ch[yy].y*ch[zz].x)+(ch[zz].x*ch[xx].y-ch[zz].y*ch[xx].x))!=0)){
-        //         ans=1;
-        //         break; 
-        //     }
-        //     xx=len-1,yy=0,zz=1;
-        //     if((ch[yy].x==ch[zz].x&&ch[yy].y==ch[zz].y)||(ch[yy].x==ch[xx].x&&ch[yy].y==ch[xx].y)){
-        //         ans=1;
-        //         break;
-        //     }else if(abs(ch[xx].x-ch[yy].x)==abs(ch[xx].y-ch[yy].y)&&abs(ch[zz].x-ch[yy].x)==abs(ch[zz].y-ch[yy].y)&&(((ch[xx].x*ch[yy].y-ch[xx].y*ch[yy].x)+(ch[yy].x*ch[zz].y-ch[yy].y*ch[zz].x)+(ch[zz].x*ch[xx].y-ch[zz].y*ch[xx].x))!=0)){
-        //         ans=1;
-        //         break; 
-        //     }
+        int xx=len-2,yy=len-1,zz=0;
+            if((ch[yy].x==ch[zz].x&&ch[yy].y==ch[zz].y)||(ch[yy].x==ch[xx].x&&ch[yy].y==ch[xx].y)){
+                ans=1;
+                break;
+            }else if(abs(ch[xx].x-ch[yy].x)==abs(ch[xx].y-ch[yy].y)&&abs(ch[zz].x-ch[yy].x)==abs(ch[zz].y-ch[yy].y)&&(((ch[xx].x*ch[yy].y-ch[xx].y*ch[yy].x)+(ch[yy].x*ch[zz].y-ch[yy].y*ch[zz].x)+(ch[zz].x*ch[xx].y-ch[zz].y*ch[xx].x))!=0)){
+                ans=1;
+                break; 
+            }
+            xx=len-1,yy=0,zz=1;
+            if((ch[yy].x==ch[zz].x&&ch[yy].y==ch[zz].y)||(ch[yy].x==ch[xx].x&&ch[yy].y==ch[xx].y)){
+                ans=1;
+                break;
+            }else if(abs(ch[xx].x-ch[yy].x)==abs(ch[xx].y-ch[yy].y)&&abs(ch[zz].x-ch[yy].x)==abs(ch[zz].y-ch[yy].y)&&(((ch[xx].x*ch[yy].y-ch[xx].y*ch[yy].x)+(ch[yy].x*ch[zz].y-ch[yy].y*ch[zz].x)+(ch[zz].x*ch[xx].y-ch[zz].y*ch[xx].x))!=0)){
+                ans=1;
+                break; 
+            }
         if(ans){
             printf("Yes\n");
         }else{
