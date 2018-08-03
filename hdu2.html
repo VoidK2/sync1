@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="4game">4.Game</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n)!=EOF){
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Yes\n"</span>);
+    }
+}
+</div></code></pre>
+<h2 id="5-hack-it">5 Hack It</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">int</span> P=<span class="hljs-number">47</span>,f[<span class="hljs-number">233333</span>],an=<span class="hljs-number">0</span>,gg[<span class="hljs-number">2333</span>][<span class="hljs-number">2333</span>];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;P;i++)
+    {
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> r=<span class="hljs-number">0</span>;r&lt;P;++r)
+        {
+            ++an;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i,k=<span class="hljs-number">0</span>;k&lt;P;k++,j=(j+r)%P)
+                f[j*P+k]=an;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;P*P;++j)
+                <span class="hljs-keyword">if</span>(f[j]==an) gg[i*P+r][j]=<span class="hljs-number">1</span>;
+        }
+    }
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,<span class="hljs-number">1999</span>);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">1999</span>;++i,<span class="hljs-built_in">puts</span>(<span class="hljs-string">""</span>))
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">1999</span>;++j)
+            <span class="hljs-built_in">putchar</span>(gg[i+<span class="hljs-number">2</span>][j+<span class="hljs-number">2</span>]+<span class="hljs-number">48</span>);****
+}
+</div></code></pre>
+<h2 id="5-matrix">5 Matrix</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;math.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> L long long</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> q=<span class="hljs-number">998244353</span>;
+<span class="hljs-keyword">int</span> n,m,t,c[<span class="hljs-number">3010</span>][<span class="hljs-number">3010</span>],f[<span class="hljs-number">3010</span>][<span class="hljs-number">3010</span>],x[<span class="hljs-number">9000010</span>],a[<span class="hljs-number">3010</span>],b[<span class="hljs-number">3010</span>],p;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">int</span> i,j,k,l;
+    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">3000</span>;i++)
+      {
+       c[i][<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;
+       <span class="hljs-keyword">for</span>(j=<span class="hljs-number">1</span>;j&lt;=i;j++)
+         c[i][j]=(c[i<span class="hljs-number">-1</span>][j]+c[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>])%q;
+      }
+    x[<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">9000000</span>;i++)
+      x[i]=(x[i<span class="hljs-number">-1</span>]&lt;&lt;<span class="hljs-number">1</span>)%q;
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)
+      {
+       <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;i,&amp;j);
+       a[i]=<span class="hljs-number">1</span>;
+       <span class="hljs-keyword">for</span>(k=i+<span class="hljs-number">1</span>;k&lt;=n;k++)
+         {
+          a[k]=<span class="hljs-number">1</span>;
+          <span class="hljs-keyword">for</span>(l=i;l&lt;k;l++)
+            a[k]=(a[k]-(L)a[l]*c[k][l])%q;
+         }
+       b[j]=<span class="hljs-number">1</span>;
+       <span class="hljs-keyword">for</span>(k=j+<span class="hljs-number">1</span>;k&lt;=m;k++)
+         {
+          b[k]=<span class="hljs-number">1</span>;
+          <span class="hljs-keyword">for</span>(l=j;l&lt;k;l++)
+            b[k]=(b[k]-(L)b[l]*c[k][l])%q;
+         }
+       <span class="hljs-keyword">for</span>(k=i;k&lt;=n;k++)
+         <span class="hljs-keyword">for</span>(l=j;l&lt;=m;l++)
+           f[k][l]=(L)c[n][k]*c[m][l]%q*x[(n-k)*(m-l)]%q;
+       p=<span class="hljs-number">0</span>;
+       <span class="hljs-keyword">for</span>(k=i;k&lt;=n;k++)
+         <span class="hljs-keyword">for</span>(l=j;l&lt;=m;l++)
+           p=(p+(L)f[k][l]*a[k]%q*b[l])%q;
+       p=(p+q)%q;
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,p);
+      }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h2 id="7-naive-operations">7 Naive Operations</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> eps 1e-8</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INF 0x3f3f3f3f</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MOD 1e9+7</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PI acos(-1)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> lson l,m,rt&lt;&lt;1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> rson m+1,r,rt&lt;&lt;1|1</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ull;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxn = <span class="hljs-number">1e5</span> + <span class="hljs-number">5</span>;
+
+<span class="hljs-keyword">int</span> n, q;
+<span class="hljs-keyword">int</span> MIN[maxn &lt;&lt; <span class="hljs-number">2</span>];
+<span class="hljs-keyword">int</span> lazy[maxn &lt;&lt; <span class="hljs-number">2</span>];
+<span class="hljs-keyword">int</span> ans[maxn &lt;&lt; <span class="hljs-number">2</span>];
+<span class="hljs-keyword">int</span> b[maxn &lt;&lt; <span class="hljs-number">2</span>];
+
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushup</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rt)</span> </span>{
+    MIN[rt] = min(MIN[rt &lt;&lt; <span class="hljs-number">1</span>], MIN[rt &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>]);
+    ans[rt] = ans[rt &lt;&lt; <span class="hljs-number">1</span>] + ans[rt &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>];
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushdown</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rt)</span> </span>{
+    <span class="hljs-keyword">if</span>(lazy[rt]) {
+        lazy[rt &lt;&lt; <span class="hljs-number">1</span>] += lazy[rt];
+        lazy[rt &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>] += lazy[rt];
+        MIN[rt &lt;&lt; <span class="hljs-number">1</span>] -= lazy[rt];
+        MIN[rt &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>] -= lazy[rt];
+        lazy[rt] = <span class="hljs-number">0</span>;
+    }
+}
+<span class="hljs-comment">//建树</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> rt)</span> </span>{
+    lazy[rt] = <span class="hljs-number">0</span>;
+    ans[rt] = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(l == r) {
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;b[rt]);
+        MIN[rt] = b[rt];
+        <span class="hljs-keyword">return</span> ;
+    }
+    <span class="hljs-keyword">int</span> m = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    build(lson);
+    build(rson);
+    pushup(rt);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updata</span><span class="hljs-params">(<span class="hljs-keyword">int</span> L, <span class="hljs-keyword">int</span> R, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> rt)</span> </span>{
+    <span class="hljs-keyword">if</span>(L &lt;= l &amp;&amp; R &gt;= r) {
+        MIN[rt]--;
+        <span class="hljs-keyword">if</span>(MIN[rt]) {
+            lazy[rt]++;
+            <span class="hljs-keyword">return</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span>(l == r) {
+                ans[rt]++;
+                MIN[rt] = b[rt];
+                <span class="hljs-keyword">return</span>;
+            }
+
+        }
+    }
+    pushdown(rt);
+    <span class="hljs-keyword">int</span> m = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(L &lt;= m) updata(L, R, lson);
+    <span class="hljs-keyword">if</span>(R &gt; m) updata(L, R, rson);
+    pushup(rt);
+}
+<span class="hljs-comment">//查询</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> L, <span class="hljs-keyword">int</span> R, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> rt)</span> </span>{
+    <span class="hljs-keyword">if</span>(L &lt;= l &amp;&amp; R &gt;= r) {
+        <span class="hljs-keyword">return</span> ans[rt];
+    }
+    pushdown(rt);
+    <span class="hljs-keyword">int</span> m = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(m &gt;= L) sum += query(L, R, lson);
+    <span class="hljs-keyword">if</span>(m &lt; R) sum += query(L, R, rson);
+    <span class="hljs-keyword">return</span> sum;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">while</span>(~<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>, &amp;n, &amp;q)) {
+        build(<span class="hljs-number">1</span>, n, <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= q; i++) {
+            <span class="hljs-keyword">char</span> op[<span class="hljs-number">10</span>];
+            <span class="hljs-keyword">int</span> a, b;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s%d%d"</span>, op, &amp;a, &amp;b);
+            <span class="hljs-keyword">if</span>(op[<span class="hljs-number">0</span>] == <span class="hljs-string">'q'</span>) {
+                <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, query(a, b, <span class="hljs-number">1</span>, n, <span class="hljs-number">1</span>));
+            } <span class="hljs-keyword">else</span> {
+                updata(a, b, <span class="hljs-number">1</span>, n, <span class="hljs-number">1</span>);
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h2 id="10-swaps-and-inversions">10 Swaps and Inversions</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> cnt,ans;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">int</span> n,x,y;
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> a[<span class="hljs-number">100001</span>],b[<span class="hljs-number">100001</span>];
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge_sort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *a,<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y,<span class="hljs-keyword">int</span> *b)</span></span>{
+        <span class="hljs-keyword">if</span>(y-x&gt;<span class="hljs-number">1</span>){
+            <span class="hljs-keyword">int</span> m=x+(y-x)/<span class="hljs-number">2</span>;
+            <span class="hljs-keyword">int</span> p=x,q=m,i=x;
+            merge_sort(a,x,m,b);
+            merge_sort(a,m,y,t);
+            <span class="hljs-keyword">while</span>(p&lt;m||q&lt;y){
+                <span class="hljs-keyword">if</span>(q&gt;=y||(p&lt;m&amp;&amp;a[p]&lt;=a[q])){
+                    b[i++]=a[p++];
+                }<span class="hljs-keyword">else</span>{
+                    b[i++]=a[<span class="hljs-number">1</span>++];
+                    cnt+=m-p;
+                }
+                <span class="hljs-keyword">for</span>(i=x;i&lt;y;i++){
+                    a[i]=b[i];
+                }
+            }
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">int</span> n,x,y;
+        <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d%d"</span>,&amp;n,&amp;x,&amp;y)!=EOF){
+            cnt=<span class="hljs-number">0</span>;ans=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++){
+                <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;a[i]);
+            }
+            <span class="hljs-built_in">memset</span>(b,<span class="hljs-number">0</span>,<span class="hljs-keyword">sizeof</span>(b));
+            merge_sort(a,<span class="hljs-number">0</span>,n,b);
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>,min(x,y)*cnt);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+}
+</div></code></pre>
+
+    </body>
+    </html>
