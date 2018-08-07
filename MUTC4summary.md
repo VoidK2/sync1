@@ -1,0 +1,1 @@
+## 2018 Multi-University Training Contest 3 SUMMARY
