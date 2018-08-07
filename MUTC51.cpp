@@ -48,7 +48,7 @@ void invert(int l,int r,int len){
     }
 }
 int main(){
-    freopen("input.txt","r",stdin);
+    // freopen("input.txt","r",stdin);
     // int a[10]={1,2,5,4,4,0};
     // int len=LIS(a,6);
     // printf("%d",len);
