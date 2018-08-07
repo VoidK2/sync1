@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="2018-multi-university-training-contest-4-summary">2018 Multi-University Training Contest 4 SUMMARY</h1>
+<h2 id="problem-b-harvest-of-apples">Problem B. Harvest of Apples</h2>
+<blockquote>
+<p>裸的莫队算法，离线算法</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> N 311111</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> A 1111111</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BLOCK 555 <span class="hljs-comment">// ~sqrt(N)</span></span>
+
+<span class="hljs-keyword">int</span> cnt[A], a[N], ans[N], answer = <span class="hljs-number">0</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> {</span>
+	<span class="hljs-keyword">int</span> L, R, i;
+}q[N];
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(node x, node y)</span> </span>{
+	<span class="hljs-keyword">if</span>(x.L/BLOCK != y.L/BLOCK) {
+		<span class="hljs-comment">// different blocks, so sort by block.</span>
+		<span class="hljs-keyword">return</span> x.L/BLOCK &lt; y.L/BLOCK;
+	}
+	<span class="hljs-comment">// same block, so sort by R value</span>
+	<span class="hljs-keyword">return</span> x.R &lt; y.R;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>{
+	cnt[a[position]]++;
+	<span class="hljs-keyword">if</span>(cnt[a[position]] == <span class="hljs-number">1</span>) {
+		answer++;
+	}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>{
+	cnt[a[position]]--;
+	<span class="hljs-keyword">if</span>(cnt[a[position]] == <span class="hljs-number">0</span>) {
+		answer--;
+	}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+	<span class="hljs-keyword">int</span> n;
+	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)
+		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;a[i]);
+
+	<span class="hljs-keyword">int</span> m;
+	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;m);
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;m; i++) {
+		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>, &amp;q[i].L, &amp;q[i].R);
+		q[i].L--; q[i].R--;
+		q[i].i = i;
+	}
+
+	sort(q, q + m, cmp);
+
+	<span class="hljs-keyword">int</span> currentL = <span class="hljs-number">0</span>, currentR = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;m; i++) {
+		<span class="hljs-keyword">int</span> L = q[i].L, R = q[i].R;
+		<span class="hljs-keyword">while</span>(currentL &lt; L) {
+			remove(currentL);
+			currentL++;
+		}
+		<span class="hljs-keyword">while</span>(currentL &gt; L) {
+			add(currentL<span class="hljs-number">-1</span>);
+			currentL--;
+		}
+		<span class="hljs-keyword">while</span>(currentR &lt;= R) {
+			add(currentR);
+			currentR++;
+		}
+		<span class="hljs-keyword">while</span>(currentR &gt; R+<span class="hljs-number">1</span>) {
+			remove(currentR<span class="hljs-number">-1</span>);
+			currentR--;
+		}
+		ans[q[i].i] = answer;
+	}
+
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;m; i++)
+		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, ans[i]);
+}
+</div></code></pre>
+<h2 id="problem-d-nothing-is-impossible">Problem D. Nothing is Impossible</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">a1</span>{</span>
+    <span class="hljs-keyword">int</span> i,j;
+    <span class="hljs-keyword">double</span> r;
+}a[<span class="hljs-number">101</span>];
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(a1  aa,a1 bb)</span></span>{
+    <span class="hljs-keyword">return</span> aa.r&gt;bb.r;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-comment">// freopen("input.txt", "r", stdin);</span>
+    <span class="hljs-keyword">int</span> t;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;t);
+    <span class="hljs-keyword">while</span>(t--){
+        <span class="hljs-keyword">int</span> n,m;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++){
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;a[i].i,&amp;a[i].j);
+            a[i].r=(<span class="hljs-keyword">double</span>)a[i].i/((<span class="hljs-keyword">double</span>)a[i].j+(<span class="hljs-keyword">double</span>)a[i].i);
+            <span class="hljs-comment">// printf("%lf\n",a[i].r);</span>
+        }
+        sort(a,a+n,cmp);
+        <span class="hljs-comment">// for(int i=0;i&lt;n;i++)</span>
+        <span class="hljs-comment">//     printf("%d %d \n",a[i].i,a[i].j);</span>
+        <span class="hljs-keyword">int</span> c1=m,ans=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++){
+            <span class="hljs-keyword">if</span>(c1&gt;=a[i].i+a[i].j){
+                c1=c1*a[i].r;
+                <span class="hljs-comment">// printf("%d %d\n",c1,i);</span>
+                ans++;
+            }<span class="hljs-keyword">else</span>{
+                <span class="hljs-keyword">break</span>;
+            }
+        }
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,ans);
+    }
+}
+</div></code></pre>
+<h2 id="problem-j-let-sudoku-rotate">Problem J. Let Sudoku Rotate</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">ord</span><span class="hljs-params">(<span class="hljs-keyword">char</span> c)</span> </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isdigit</span>(c)) <span class="hljs-keyword">return</span> c - <span class="hljs-string">'0'</span>;
+    <span class="hljs-keyword">return</span> c - <span class="hljs-string">'A'</span> + <span class="hljs-number">10</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">str</span><span class="hljs-params">(<span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">if</span> (c &lt; <span class="hljs-number">10</span>) <span class="hljs-keyword">return</span> c + <span class="hljs-string">'0'</span>;
+    <span class="hljs-keyword">return</span> c + <span class="hljs-string">'A'</span> - <span class="hljs-number">10</span>;
+}
+
+<span class="hljs-keyword">int</span> r[<span class="hljs-number">16</span>][<span class="hljs-number">16</span>], c[<span class="hljs-number">16</span>][<span class="hljs-number">16</span>];
+<span class="hljs-keyword">int</span> a[<span class="hljs-number">16</span>][<span class="hljs-number">16</span>];
+<span class="hljs-keyword">int</span> b[<span class="hljs-number">4</span>][<span class="hljs-number">4</span>];
+<span class="hljs-keyword">char</span> s[<span class="hljs-number">16</span>];
+<span class="hljs-keyword">int</span> ret;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ip, <span class="hljs-keyword">int</span> jp, <span class="hljs-keyword">int</span> v)</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = ip * <span class="hljs-number">4</span>; i &lt; (ip + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>; ++i) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = jp * <span class="hljs-number">4</span>; j &lt; (jp + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>; ++j) {
+            r[i][a[i][j]] += v; c[j][a[i][j]] += v;
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">rot</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ip, <span class="hljs-keyword">int</span> jp)</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = ip * <span class="hljs-number">4</span>; i &lt; (ip + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>; ++i) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = jp * <span class="hljs-number">4</span>; j &lt; (jp + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>; ++j) {
+            --r[i][a[i][j]]; --c[j][a[i][j]];
+            b[j - jp * <span class="hljs-number">4</span>][(ip + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span> - i - <span class="hljs-number">1</span>] = a[i][j];
+        }
+    }
+    <span class="hljs-keyword">bool</span> succ = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = ip * <span class="hljs-number">4</span>; i &lt; (ip + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>; ++i) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = jp * <span class="hljs-number">4</span>; j &lt; (jp + <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>; ++j) {
+            a[i][j] = b[i - ip * <span class="hljs-number">4</span>][j - jp * <span class="hljs-number">4</span>];
+            <span class="hljs-keyword">if</span> ((++r[i][a[i][j]] &gt; <span class="hljs-number">1</span>) || (++c[j][a[i][j]] &gt; <span class="hljs-number">1</span>)) succ = <span class="hljs-literal">false</span>;
+        }
+    }
+    <span class="hljs-keyword">return</span> succ;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ip, <span class="hljs-keyword">int</span> jp, <span class="hljs-keyword">int</span> now)</span> </span>{
+    <span class="hljs-keyword">if</span> (ip == <span class="hljs-number">4</span> &amp;&amp; jp == <span class="hljs-number">0</span>) {
+        ret = min(ret, now);
+        <span class="hljs-keyword">return</span>;
+    }
+    add(ip, jp, <span class="hljs-number">1</span>); <span class="hljs-keyword">if</span> (now &gt;= ret) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">4</span>; ++i) {
+        <span class="hljs-keyword">if</span> (rot(ip, jp)) dfs(jp == <span class="hljs-number">3</span> ? ip + <span class="hljs-number">1</span> : ip, jp == <span class="hljs-number">3</span> ? <span class="hljs-number">0</span> : jp + <span class="hljs-number">1</span>, now + (i &amp; <span class="hljs-number">3</span>));
+    }
+    add(ip, jp, <span class="hljs-number">-1</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">16</span>; ++i) {
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, s);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">16</span>; ++j) a[i][j] = ord(s[j]);
+    }
+    <span class="hljs-built_in">memset</span>(r, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(r)); <span class="hljs-built_in">memset</span>(c, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(c));
+    ret = <span class="hljs-number">16</span> * <span class="hljs-number">4</span>; dfs(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, ret);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> T;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;T);
+    <span class="hljs-keyword">while</span> (T--) solve();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h2 id="problem-k-expression-in-memories">Problem K. Expression in Memories</h2>
+<blockquote>
+<p>几次错误提交都是因为一个特殊情况没考虑到</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// freopen("input.txt", "r", stdin);</span>
+    <span class="hljs-keyword">int</span> T;
+    <span class="hljs-keyword">char</span> str[<span class="hljs-number">501</span>];
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;T);
+    <span class="hljs-keyword">while</span>(T--)
+    {
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, str);
+        <span class="hljs-keyword">bool</span> flag = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">int</span> len = <span class="hljs-built_in">strlen</span>(str);
+        <span class="hljs-keyword">if</span>(str[<span class="hljs-number">0</span>] == <span class="hljs-string">'?'</span>)
+            str[<span class="hljs-number">0</span>] = <span class="hljs-string">'1'</span>;
+        <span class="hljs-keyword">if</span>(len &gt;= <span class="hljs-number">2</span>){
+            <span class="hljs-keyword">if</span>(str[<span class="hljs-number">1</span>] == <span class="hljs-string">'?'</span> &amp;&amp; str[<span class="hljs-number">0</span>] == <span class="hljs-string">'0'</span>)
+                str[<span class="hljs-number">1</span>] = <span class="hljs-string">'+'</span>;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str[<span class="hljs-number">1</span>] == <span class="hljs-string">'?'</span>)
+                str[<span class="hljs-number">1</span>] = <span class="hljs-string">'1'</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; len; i ++){
+                <span class="hljs-keyword">if</span>(str[i] == <span class="hljs-string">'?'</span>){
+                    <span class="hljs-keyword">if</span>(str[i<span class="hljs-number">-1</span>] == <span class="hljs-string">'0'</span> &amp;&amp; (str[i<span class="hljs-number">-2</span>] == <span class="hljs-string">'+'</span> || str[i<span class="hljs-number">-2</span>] == <span class="hljs-string">'*'</span>))
+                        str[i] = <span class="hljs-string">'+'</span>;
+                    <span class="hljs-keyword">else</span>
+                        str[i] = <span class="hljs-string">'1'</span>;
+                }
+            }
+        }
+        <span class="hljs-keyword">if</span>(str[<span class="hljs-number">0</span>]==<span class="hljs-string">'+'</span> || str[<span class="hljs-number">0</span>]==<span class="hljs-string">'*'</span> || str[len<span class="hljs-number">-1</span>]==<span class="hljs-string">'+'</span> || str[len<span class="hljs-number">-1</span>]==<span class="hljs-string">'*'</span>)
+        flag = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span>(len &gt; <span class="hljs-number">1</span>){
+            <span class="hljs-keyword">if</span>(str[<span class="hljs-number">0</span>]==<span class="hljs-string">'0'</span>&amp;&amp;str[<span class="hljs-number">1</span>]!=<span class="hljs-string">'*'</span>&amp;&amp;str[<span class="hljs-number">1</span>]!=<span class="hljs-string">'+'</span>)
+                flag = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i ++){
+                <span class="hljs-keyword">if</span>(str[i]!=<span class="hljs-string">'+'</span>&amp;&amp;str[i]!=<span class="hljs-string">'*'</span>){
+                    <span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;
+                    <span class="hljs-keyword">for</span>(j = i; j &lt; len; j ++)
+                        <span class="hljs-keyword">if</span>(str[j]==<span class="hljs-string">'+'</span>||str[j]==<span class="hljs-string">'*'</span>)
+                            <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">if</span>(str[i]==<span class="hljs-string">'0'</span>&amp;&amp;j-i&gt;<span class="hljs-number">1</span>){
+                        flag = <span class="hljs-literal">false</span>;
+                        <span class="hljs-keyword">break</span>;
+                    }
+                    i = j;
+                }
+            }
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; len; i ++){
+                <span class="hljs-keyword">if</span>((str[i<span class="hljs-number">-1</span>]==<span class="hljs-string">'+'</span>||str[i<span class="hljs-number">-1</span>]==<span class="hljs-string">'*'</span>)&amp;&amp;(str[i]==<span class="hljs-string">'+'</span>||str[i]==<span class="hljs-string">'*'</span>)){
+                    flag = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+        <span class="hljs-keyword">if</span>(!flag)
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"IMPOSSIBLE\n"</span>);
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, str);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h2 id="problem-l-graph-theory-homework">Problem L. Graph Theory Homework</h2>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cmath&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mod 100000007</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// freopen("input.txt","r",stdin);</span>
+    <span class="hljs-keyword">int</span> t;
+    <span class="hljs-keyword">int</span> a[<span class="hljs-number">100001</span>];
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;t);
+    <span class="hljs-keyword">while</span>(t--){
+        <span class="hljs-keyword">int</span> n;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++){
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;a[i]);
+        }
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-built_in">sqrt</span>(<span class="hljs-built_in">abs</span>(a[<span class="hljs-number">0</span>]-a[n<span class="hljs-number">-1</span>]));
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,ans);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+
+    </body>
+    </html>
