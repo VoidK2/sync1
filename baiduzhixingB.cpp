@@ -4,7 +4,7 @@
 #include <cstring>
 using namespace std;
 int main(){
-    freopen("input.txt","r",stdin);
+    // freopen("input.txt","r",stdin);
     int t;
     scanf("%d",&t);
     for(int tt=1;tt<=t;tt++){
