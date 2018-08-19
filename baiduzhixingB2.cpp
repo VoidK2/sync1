@@ -13,7 +13,7 @@ bool cmp(st a,st b){
 }
 
 int main(){
-    freopen("input.txt","r",stdin);
+    // freopen("input.txt","r",stdin);
     int n,c;
     while(scanf("%d%d",&n,&c)!=EOF){
         char a[10001];

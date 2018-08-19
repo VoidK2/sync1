@@ -13,7 +13,7 @@ bool cmp(int a,int b){
     return a>b;
 }
 int main(){
-    freopen("input.txt","r",stdin);
+    // freopen("input.txt","r",stdin);
     int t;
     while(scanf("%d",&t)!=EOF){
         int a[1001];
